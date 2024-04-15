@@ -9,17 +9,17 @@ const Form = () => {
     // Now using formspree here .. before i used getform.io  ( please dont copy my form action link.. it wont work for you)
     <form
       className="flex flex-col gap-y-4"
-      action="https://formspree.io/f/moqgqqng"
+      action="https://formspree.io/f/mdoqpvza"
       method="POST"
     >
       {/* input  */}
       <div className="relative flex items-center">
-        <Input type="name" id="name" name="name" placeholder="Name" />
+        <Input type="name" id="name" name="name" placeholder="Nombre" />
         <User className="absolute right-6" size={20} />
       </div>
       {/* input  */}
       <div className="relative flex items-center">
-        <Input type="email" id="email" name="email" placeholder="Email" />
+        <Input type="email" id="email" name="email" placeholder="Correo Electronico" />
         <MailIcon className="absolute right-6" size={20} />
       </div>
       {/* input  */}
@@ -27,12 +27,12 @@ const Form = () => {
         <Textarea
           id="message"
           name="message"
-          placeholder="Type your message here."
+          placeholder="Escribe tu mensaje aquí."
         />
         <MessageSquare className="absolute top-4 right-6" size={20} />
       </div>
       <Button type="submit" className="flex items-center gap-x-1 max-w-[166px]">
-        Let's Talk <ArrowRightIcon size={20} />
+        Hablemos <ArrowRightIcon size={20} />
       </Button>
     </form>
   );
