@@ -14,7 +14,7 @@ const Contact = () => {
               <span className="w-[30px] h-[2px] bg-primary"></span>
               Hola 👋
             </div>
-            <h1 className="h1 max-w-md mb-8">Lets's Work Together.</h1>
+            <h1 className="h1 max-w-md mb-8">Trabajemos juntos.</h1>
             <p className="subtitle max-w-[400px]">
             Siempre estoy abierto a nuevas oportunidades y colaboraciones. Contáctame por correo electrónico, teléfono o redes sociales. Espero con interés escuchar de usted pronto. 😊
             </p>
