@@ -9,7 +9,7 @@ const projectData = [
     category: "Next JS",
     name: "GoInmuebles",
     description:
-    "Un sitio web de alquiler de bienes raíces hecho con nextjs, tailwindcss, laravel y nestjs.",
+    "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
     link: "https://www.goinmuebles.com/",
     github: "#",
   },
