@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 const links = [
   { path: "/", name: "Inico" },
+  { path: "/cv", name: "Mi CV" },
   { path: "/projects", name: "Mis Proyectos" },
   { path: "/contact", name: "Contacto" },
 ];

@@ -18,8 +18,8 @@ body::-webkit-scrollbar {
     --card-foreground: 240 19% 16%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 8 99% 67%;
-    --primary-foreground: 300 0% 100%;
+    --primary: 217, 90%, 67%; /* Azul primario claro */
+    --primary-foreground: 217, 90%, 85%; /* Azul primario más claro */
     --secondary: 240 19% 16%;
     --secondary-foreground: 300 0% 100%;
     --tertiary: 27 82% 98%;
@@ -39,25 +39,26 @@ body::-webkit-scrollbar {
     --background: 237 22% 28%;
     --foreground: 60 9.1% 97.8%;
     --card: 240 19% 16%;
-    --card-foreground:300 0% 100%;
+    --card-foreground: 300 0% 100%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 8 99% 67%;
-    --primary-foreground: 300 0% 100%;
+    --primary: 217, 90%, 50%; /* Azul primario oscuro */
+    --primary-foreground: 217, 90%, 60%; /* Azul primario menos oscuro */
     --secondary: 240 19% 16%;
     --secondary-foreground: 300 0% 100%;
     --tertiary: 237 22% 20%;
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 237 13% 63%;
     --accent: 240 19% 16%;
-    --accent-foreground:300 0% 100%;
+    --accent-foreground: 300 0% 100%;
     --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 237 22% 20%;
     --input: 237 22% 20%;
-    --ring: 8 99% 67%;
+    --ring: 217, 90%, 67%; /* Azul primario claro para el anillo */
   }
 }
+
 
 } 
 @layer base {
