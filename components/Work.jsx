@@ -43,6 +43,15 @@ const projectData = [
     link: "/https://lms-platform-liard.vercel.app/",
     github: "/https://github.com/premvarma2002/lms-platform",
   },
+  {
+    image: "/work/4.jpg",
+    category: "Next JS",
+    name: "Hilink",
+    description:
+      "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
+    link: "https://travelhk.netlify.app",
+    github: "https://github.com/iSebasC/hilink_project",
+  },
 ];
 
 const Work = () => {
