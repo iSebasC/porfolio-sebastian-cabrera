@@ -1,5 +1,4 @@
 import { Outfit } from "next/font/google";
-import Head from 'next/head';  // Importa Head
 import "./globals.css";
 
 // components
@@ -17,12 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <Head>
-        <title>{metadata.title}</title>  // Puedes configurar el título aquí
-        <meta name="description" content={metadata.description} />
-        <link rel="icon" href="/app/favicon.ico" />
-      </Head>
+    <html lang="es" suppressHydrationWarning>
       <body className={outfit.className}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
