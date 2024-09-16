@@ -9,36 +9,39 @@ import { RiBriefcase4Fill, RiTodoFill, RiArrowDownSLine } from "react-icons/ri";
 import DevImg from "./DevImg";
 import Badge from "./Badge";
 import Socials from "./Socials";
-import { motion } from "framer-motion";
-const LetterAnimation = ({ letter, delay }) => {
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+const LetterAnimation = ({ letter, delay, direction }) => {
   const letterVariants = {
-    hidden: { opacity: 0, scale: 0.5 },
+    hidden: {
+      opacity: 0,
+      x: direction === "left" ? -50 : 50, // Cambia la dirección de acuerdo con la prop `direction`
+      scale: 0.5,
+    },
     visible: {
       opacity: 1,
+      x: 0, // Vuelve a su posición original
       scale: 1,
       transition: {
         type: "spring",
         stiffness: 260,
         damping: 20,
-        delay: delay, // Using delay for stagger effect
+        delay: delay, // Usando delay para el efecto de escalonado
       },
     },
   };
 
   return (
-    <motion.span
-      variants={letterVariants}
-      initial="hidden"
-      animate="visible"
-      // Ensuring each letter is treated individually
-    >
+    <motion.span variants={letterVariants} initial="hidden" animate="visible">
       {letter}
     </motion.span>
   );
 };
 const Hero = () => {
   const name = "Sebastian Cabrera";
+  const description = "Diseñador digital y desarrollador web";
   const delayStep = 0.05;
+
   return (
     // <section className="py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none">
     //   <div className="container mx-auto">
@@ -103,6 +106,7 @@ const Hero = () => {
     //     </div>
     //   </div>
     // </section>
+
     <section className="container px-0 grid gap-[3rem] py-[3.5rem] sm:gap-[4rem] xl:items-center xl:grid-cols-3 xl:py-0 xl:min-h-[calc(100vh-88px)]">
       <div className="text-center xl:text-end">
         <h1 className="font-semibold text-[35px] xl:text-[55px]">
@@ -110,15 +114,51 @@ const Hero = () => {
             <LetterAnimation
               key={index}
               letter={char}
+              direction="right" // Aquí todas las letras del nombre vienen de la derecha
               delay={index * delayStep}
             />
           ))}
         </h1>
-        <p>Destinado en Lima, Perú</p>
-        <div className="flex items-center gap-2 justify-center xl:justify-end">
-          <div className="w-[8px] h-[8px] bg-[#98fe7f] rounded-full flex-none" />
-          <p>Disponible para un puesto a tiempo completo</p>
-        </div>
+        <motion.div
+          variants={{
+            hidden: { y: 50, opacity: 0 }, // Comienza 50px abajo y con opacidad 0
+            visible: {
+              y: 0,
+              opacity: 1,
+              transition: {
+                type: "spring",
+                stiffness: 120,
+                damping: 20,
+                duration: 0.5,
+              },
+            },
+          }}
+          initial="hidden"
+          animate="visible"
+        >
+          <p>Destinado en Lima, Perú</p>
+          <div className="flex items-center gap-2 justify-center xl:justify-end">
+            <div className="w-[8px] h-[8px] bg-[#98fe7f] rounded-full flex-none" />
+            <p>Disponible para un puesto a tiempo completo</p>
+          </div>
+          <div className="flex flex-col items-center gap-y-3 md:flex-row justify-center xl:justify-end gap-x-3 xl:mx-0 my-6">
+            <Link href={"/contact"}>
+              <Button className="gap-x-2">
+                Contáctame <Send size={18} />
+              </Button>
+            </Link>
+
+            <a href="/CV_SEBASTIANCABRERAALCALA.pdf" download="cv.pdf">
+              <Button variant="secondary" className="gap-x-2">
+                Descargar CV <Download size={18} />
+              </Button>
+            </a>
+          </div>
+          <Socials
+            containerStyles="flex gap-x-6 justify-center xl:justify-end xl:mx-0"
+            iconsStyles="text-foreground text-[22px] hover:text-primary transition-all"
+          />
+        </motion.div>
       </div>
       <div className="grid mb-[20px] sm:mb-[30px]">
         <motion.svg
@@ -227,43 +267,14 @@ const Hero = () => {
       </div>
       <div className="text-center xl:text-start">
         <p className="font-semibold text-[35px] xl:text-[45px]">
-          <span>D</span>
-          <span>i</span>
-          <span>s</span>
-          <span>e</span>
-          <span>ñ</span>
-          <span>a</span>
-          <span>d</span>
-          <span>o</span>
-          <span>r</span>
-          <span> </span>
-          <span>d</span>
-          <span>i</span>
-          <span>g</span>
-          <span>i</span>
-          <span>t</span>
-          <span>a</span>
-          <span>l</span>
-          <span> </span>
-          <span>y</span>
-          <span> </span>
-          <span>d</span>
-          <span>e</span>
-          <span>s</span>
-          <span>a</span>
-          <span>r</span>
-          <span>r</span>
-          <span>o</span>
-          <span>l</span>
-          <span>l</span>
-          <span>a</span>
-          <span>d</span>
-          <span>o</span>
-          <span>r</span>
-          <span> </span>
-          <span>w</span>
-          <span>e</span>
-          <span>b</span>
+          {description.split("").map((char, index) => (
+            <LetterAnimation
+              key={index}
+              letter={char}
+              direction="left" // Aquí todas las letras de la descripción vienen de la izquierda
+              delay={index * delayStep}
+            />
+          ))}
         </p>
       </div>
     </section>

@@ -1,27 +1,26 @@
 "use client";
 import Link from "next/link";
-import { Button } from "./ui/button";
-
 // import swiper react components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // import swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-cards";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { EffectCards } from "swiper/modules";
 
-// components
-import ProjectCard from "./ProjectCard";
-
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github, Code } from "lucide-react";
 const projectData = [
   {
     image: "/work/1.png",
     category: "Next JS",
     name: "GoInmuebles",
     description:
-    "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
+      "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
     link: "https://www.goinmuebles.com/",
     github: "#",
   },
@@ -38,8 +37,7 @@ const projectData = [
     image: "/work/5.png",
     category: "VueJS",
     name: "Mi blog",
-    description:
-      "Es un sitio web hecho con Bootstrap-Vue",
+    description: "Es un sitio web hecho con Bootstrap-Vue",
     link: "/https://lms-platform-liard.vercel.app/",
     github: "/https://github.com/premvarma2002/lms-platform",
   },
@@ -56,43 +54,85 @@ const projectData = [
 
 const Work = () => {
   return (
-    <section className="relative mb-12 xl:mb-48">
-      <div className="container mx-auto">
-        {/* text  */}
-        <div className="max-w-[400px] mx-auto xl:mx-0 text-center xl:text-left mb-12 xl:h-[400px] flex flex-col justify-center items-center xl:items-start">
-          <h2 className="section-title mb-4">Últimos proyectos</h2>
-          <p className="subtitle mb-8">
-          Ingrese al código que he creado.
-          </p>
-          <Link href="/projects">
-            <Button>Todos los proyectos</Button>
-          </Link>
-        </div>
-        {/* slider  */}
-        <div className="xl:max-w-[1000px] xl:absolute right-0 top-0">
-          <Swiper
-            className="h-[480px]"
-            slidesPerView={1}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-            }}
-            spacebetween={30}
-            modules={[Pagination]}
-            pagination={{ clickable: true }}
-          >
-            {/* show only the first 4 projects for the slides  */}
-            {projectData.slice(0, 4).map((project, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <ProjectCard project={project} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
+    <section className="mb-12 xl:mb-48 gap-[4rem] container grid lg:gap-0 lg:grid-cols-2">
+      {/* text  */}
+      <div className="flex flex-col items-center lg:items-start">
+        <h2 className="section-title mb-4">Proyectos Personales</h2>
+        <p className="subtitle mb-8">
+          Explora el código detrás de los proyectos que he creado. Cada uno
+          refleja mi pasión por el desarrollo y mi compromiso con la calidad.
+        </p>
+        <Link href="/projects">
+          <Button>Todos los proyectos</Button>
+        </Link>
       </div>
+
+      {/* slider  */}
+
+      <Swiper
+        effect={"cards"}
+        grabCursor={true}
+        modules={[EffectCards]}
+        className="max-w-[270px] sm:max-w-[400px]"
+      >
+        {projectData.map((project, index) => (
+          <SwiperSlide key={index} className="rounded-[25px]">
+            <Card className="rounded-[25px] overflow-hidden">
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed h-[100px] sm:h-[78px]">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground">
+                    <Code className="h-4 w-4" />
+                    <span className="ml-1">{project.category}</span>
+                  </span>
+                </div>
+              </CardContent>
+              <CardFooter className="p-6 pt-0 flex flex-wrap gap-3 justify-center sm:justify-between">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                  asChild
+                >
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Ver proyecto
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="transition-all duration-300 hover:bg-[#333] hover:text-white"
+                  asChild
+                >
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    Ver repositorio
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 };
