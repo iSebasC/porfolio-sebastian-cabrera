@@ -31,9 +31,19 @@ export default function Home() {
     const iframe = document.createElement("iframe");
     iframe.src = chatbotUrl;
     iframe.style.border = "none";
+    iframe.width = "100%";
+    iframe.height = "600px";
 
-    // Agregar iframe al contenedor
-    document.getElementById("chatbot-container")?.appendChild(iframe);
+    // Agregar el iframe al contenedor
+    const container = document.getElementById("chatbot-container");
+    if (container) {
+      container.appendChild(iframe);
+    }
+
+    // Enviar la URL del dominio padre al iframe cuando se carga
+    iframe.onload = () => {
+      iframe.contentWindow.postMessage(window.location.href, "https://dev-inter-app-c8d6a8a2fqf0e7f9.eastus2-01.azurewebsites.net");
+    };
   }, []);
 
   return (
