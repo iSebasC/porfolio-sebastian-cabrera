@@ -34,16 +34,34 @@ export default function Home() {
     iframe.width = "100%";
     iframe.height = "600px";
 
+    console.log("URL del iframe:", chatbotUrl); // Para verificar que la URL del iframe es correcta
+
     // Agregar el iframe al contenedor
     const container = document.getElementById("chatbot-container");
     if (container) {
       container.appendChild(iframe);
+      console.log("Iframe añadido al contenedor"); // Confirmar que el iframe se añade al contenedor
+    } else {
+      console.error("Contenedor 'chatbot-container' no encontrado");
     }
 
     // Enviar la URL del dominio padre al iframe cuando se carga
     iframe.onload = () => {
-      iframe.contentWindow.postMessage(window.location.href, "https://dev-inter-app-c8d6a8a2fqf0e7f9.eastus2-01.azurewebsites.net");
+      console.log("Iframe cargado, enviando mensaje con URL del padre");
+      iframe.contentWindow.postMessage(
+        window.location.href,
+        "https://dev-inter-app-c8d6a8a2fqf0e7f9.eastus2-01.azurewebsites.net"
+      );
     };
+
+    // Escuchar el mensaje de respuesta en caso el iframe envíe algo
+    window.addEventListener("message", (event) => {
+      if (event.origin === "https://dev-inter-app-c8d6a8a2fqf0e7f9.eastus2-01.azurewebsites.net") {
+        console.log("Mensaje recibido del iframe:", event.data); // Muestra el mensaje recibido del iframe
+      } else {
+        console.warn("Mensaje recibido de origen no permitido:", event.origin);
+      }
+    });
   }, []);
 
   return (
