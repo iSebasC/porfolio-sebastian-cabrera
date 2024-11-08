@@ -16,7 +16,6 @@ export default function Home() {
       <Work />
       {/* <Reviews /> */}
       <Cta />
-      <Chatbot /> 
     </main>
   );
 }
