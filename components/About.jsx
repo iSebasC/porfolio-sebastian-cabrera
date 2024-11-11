@@ -123,34 +123,37 @@ const About = () => {
   };
   //  console.log(getData(qualificationData , 'Experiencia'))
   return (
-    <section className="xl:h-[800px] pb-12 pt-1 xl:py-24 ">
+    <section className="xl:h-[800px] pb-12 pt-1 xl:pb-24">
       <div className="container mx-auto">
         <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto pt-2">
           Acerca de mi
         </h2>
         <div className="flex flex-col xl:flex-row">
           {/* image  */}
-          <div className="hidden xl:flex flex-1 relative">
+          {/* <div className="hidden xl:flex flex-1 relative">
             <DevImg
               containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
               imgSrc="/about/1x/dev.png"
             />
-          </div>
+          </div> */}
           {/* tabs  */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none">
-                <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
+              <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-center overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
+                <TabsTrigger
+                  className="rounded-[5px_0_0_5px] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
+                  value="personal"
+                >
                   Mi Información
                 </TabsTrigger>
                 <TabsTrigger
-                  className="w-[162px] xl:w-auto"
+                  className="rounded-none bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
                   value="qualifications"
                 >
                   Calificaciones
                 </TabsTrigger>
                 <TabsTrigger
-                  className="w-[162px] xl:w-auto"
+                  className="rounded-[0_5px_5px_0] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
                   value="Habilidades"
                 >
                   Habilidades
@@ -190,7 +193,7 @@ const About = () => {
                 <TabsContent value="qualifications">
                   <div>
                     <h3 className="h3 mb-8 text-center xl:text-left">
-                      My Awesome Journey
+                      Mi impresionante viaje
                     </h3>
                     {/* Experiencia and educacion wrapper  */}
                     <div className="grid md:grid-cols-2 gap-y-8">
@@ -275,13 +278,17 @@ const About = () => {
                     <div className="mb-16">
                       {/* Habilidades */}
                       <div className="mb-4">
-                        <h4 className="text-md text-primary mb-2">Habilidades</h4>
+                        <h4 className="text-md text-primary mb-2">
+                          Habilidades
+                        </h4>
                         <p className="text-lg mb-2">React, NextJS</p>
                         <p className="text-lg mb-2">Desarrollo Front-end</p>
                         <p className="text-lg mb-2">Laravel, Slim, NestJS</p>
                         <p className="text-lg">Desarrollo Back-end</p>
                       </div>
-                        <h4 className="text-md text-primary mb-2">Otras herramientas</h4>
+                      <h4 className="text-md text-primary mb-2">
+                        Otras herramientas
+                      </h4>
                       <div className="mt-10 flex flex-wrap sm:gap-12 gap-4 justify-center items-center">
                         {Habilidades.map((Habilidades) => (
                           <div

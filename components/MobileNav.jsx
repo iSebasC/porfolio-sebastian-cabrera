@@ -4,14 +4,25 @@ import { AlignJustify } from "lucide-react";
 import Nav from "./Nav";
 import Logo from "./Logo";
 import Socials from "./Socials";
+import { useState } from "react";
 
 const MobileNav = () => {
- 
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Función para abrir el Sheet
+  const openSheet = () => {
+    setIsOpen(true);
+  };
+
+  // Función para cerrar el Sheet programáticamente
+  const closeSheet = () => {
+    setIsOpen(false);
+  };
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <AlignJustify className="cursor-pointer" />
-        </SheetTrigger>
+        <AlignJustify className="cursor-pointer" onClick={openSheet} />
+      </SheetTrigger>
       <SheetContent>
         <div className="flex flex-col items-center justify-between h-full py-8">
           <div className="flex flex-col items-center gap-y-32">
@@ -19,12 +30,15 @@ const MobileNav = () => {
             <Nav
               containerStyles="flex flex-col items-center gap-y-6"
               linkStyles="text-2xl"
+              closeSheet={closeSheet}
             />
           </div>
-          <Socials containerStyles="flex gap-x-4" iconsStyles="text-2xl hover:text-primary dark:hover:text-primary transition-all" />
+          <Socials
+            containerStyles="flex gap-x-4"
+            iconsStyles="text-2xl hover:text-primary dark:hover:text-primary transition-all"
+          />
         </div>
       </SheetContent>
-      
     </Sheet>
   );
 };

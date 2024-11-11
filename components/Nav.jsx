@@ -13,17 +13,14 @@ const links = [
   { path: "/contact", name: "Contacto" },
 ];
 
-const Nav = ({ containerStyles, linkStyles, underlineStyles ,closeSheet}) => {
-  const handleClick = () => {
-    closeSheet(); // Close the sheet when a link is clicked
-  };
-
+const Nav = ({ containerStyles, linkStyles, underlineStyles, closeSheet }) => {
   const path = usePathname();
   return (
     <nav className={`${containerStyles}`}>
       {links.map((link, index) => {
         return (
-          <Link onClick={handleClick}
+          <Link
+            onClick={closeSheet}
             href={link.path}
             key={index}
             className={`capitalize ${linkStyles}`}
