@@ -245,7 +245,7 @@ const Hero = () => {
         </motion.svg>
         <motion.img
           className="max-w-[200px] translate-y-[20px] mx-auto mt-auto sm:max-w-[340px] xl:max-w-[370px] col-start-1 row-start-1 sm:translate-y-[30px]"
-          src="https://jorisbrianti.fr/_astro/images/Joris.DToCMZOR_Z26QOH5.avif"
+          src="/hero/yo.png"
           alt="Sebas"
           variants={{
             hidden: { y: 100, opacity: 0 }, // Comienza desde abajo con opacidad 0

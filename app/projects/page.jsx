@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "@/components/ProjectCard";
+import clsx from "clsx";
 
 const projectData = [
   {
@@ -9,7 +10,7 @@ const projectData = [
     category: "Next JS",
     name: "GoInmuebles",
     description:
-    "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
+      "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
     link: "https://www.goinmuebles.com/",
     github: "#",
   },
@@ -26,8 +27,7 @@ const projectData = [
     image: "/work/5.png",
     category: "VueJS",
     name: "Mi blog",
-    description:
-      "Es un sitio web hecho con Bootstrap-Vue",
+    description: "Es un sitio web hecho con Bootstrap-Vue",
     link: "/https://lms-platform-liard.vercel.app/",
     github: "/https://github.com/premvarma2002/lms-platform",
   },
@@ -44,17 +44,17 @@ const projectData = [
 
 //  remove category duplicates
 const uniqueCategories = [
-  "all projects",
+  "Todos los proyectos",
   ...new Set(projectData.map((item) => item.category)),
 ];
 
 const Projects = () => {
   const [categories, setCategories] = useState(uniqueCategories);
-  const [category, setCategory] = useState("all projects");
+  const [category, setCategory] = useState("Todos los proyectos");
 
   const filteredProjects = projectData.filter((project) => {
     // if category is all projects then return all projects , else filter by category.
-    return category === "all projects"
+    return category === "Todos los proyectos"
       ? project
       : project.category === category;
   });
@@ -66,20 +66,31 @@ const Projects = () => {
           Mis Proyectos
         </h2>
         {/* tabs  */}
-        <Tabs defaultValue={category} className="mb-24 xl:mb-48">
-          <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[640px] mb-12 mx-auto md:border dark:border-none">
-            {categories.map((category, index) => {
-              return (
-                <TabsTrigger
-                  onClick={() => setCategory(category)}
-                  value={category}
-                  key={index}
-                  className="capitalize w-[162px] md:w-auto"
-                >
-                  {category}
-                </TabsTrigger>
-              );
-            })}
+        <Tabs defaultValue={category} className="w-full">
+          <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-start overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
+            <div className="mx-auto flex gap-[1px] rounded-[6px] bg-tertiary p-[1px]">
+              {categories.map((category, index) => {
+                return (
+                  <TabsTrigger
+                    onClick={() => setCategory(category)}
+                    value={category}
+                    key={index}
+                    className={clsx(
+                      "bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white",
+                      {
+                        "rounded-[5px_0_0_5px]": index === 0,
+                        "rounded-[0_5px_5px_0]":
+                          index === categories.length - 1,
+                        "rounded-none":
+                          index !== 0 && index !== categories.length - 1,
+                      }
+                    )}
+                  >
+                    {category}
+                  </TabsTrigger>
+                );
+              })}
+            </div>
           </TabsList>
           {/* tabs content  */}
           <div className="text-lg xl:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4">

@@ -85,8 +85,10 @@ const Work = () => {
                   className="w-full aspect-[16/10] object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
+              <CardContent className="p-6 bg-white">
+                <h3 className="text-2xl font-bold mb-2 text-black">
+                  {project.name}
+                </h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed h-[100px] sm:h-[78px]">
                   {project.description}
                 </p>
@@ -97,13 +99,8 @@ const Work = () => {
                   </span>
                 </div>
               </CardContent>
-              <CardFooter className="p-6 pt-0 flex flex-wrap gap-3 justify-center sm:justify-between">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                  asChild
-                >
+              <CardFooter className="p-6 pt-0 bg-white flex flex-wrap gap-3 justify-center sm:justify-between">
+                <Button asChild>
                   <a
                     href={project.link}
                     target="_blank"
@@ -115,7 +112,6 @@ const Work = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  size="sm"
                   className="transition-all duration-300 hover:bg-[#333] hover:text-white"
                   asChild
                 >

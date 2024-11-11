@@ -16,7 +16,7 @@ body::-webkit-scrollbar {
       --card-foreground: 240 19% 16%;
       --popover: 0 0% 100%;
       --popover-foreground: 240 10% 3.9%;
-      --primary: 217, 90%, 67%; /* Azul primario claro */
+      --primary: 8, 83%, 64%; /* Naranja primario claro */
       --primary-foreground: 217, 90%, 85%; /* Azul primario más claro */
       --secondary: 240 19% 16%;
       --secondary-foreground: 300 0% 100%;
@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
       --card-foreground: 300 0% 100%;
       --popover: 20 14.3% 4.1%;
       --popover-foreground: 60 9.1% 97.8%;
-      --primary: 217, 90%, 50%; /* Azul primario oscuro */
+      --primary: 8, 83%, 64%; /* Naranja primario claro */
       --primary-foreground: 217, 90%, 60%; /* Azul primario menos oscuro */
       --secondary: 240 19% 16%;
       --secondary-foreground: 300 0% 100%;
@@ -75,7 +75,7 @@ body::-webkit-scrollbar {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white dark:bg-black text-foreground;
   }
 }
 

@@ -139,18 +139,21 @@ const About = () => {
           {/* tabs  */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList className="w-full grid xl:grid-cols-3 mx-auto xl:max-w-[520px] xl:border dark:border-none">
-                <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
+              <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-center overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
+                <TabsTrigger
+                  className="rounded-[5px_0_0_5px] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
+                  value="personal"
+                >
                   Mi Información
                 </TabsTrigger>
                 <TabsTrigger
-                  className="w-[162px] xl:w-auto"
+                  className="rounded-none bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
                   value="qualifications"
                 >
                   Calificaciones
                 </TabsTrigger>
                 <TabsTrigger
-                  className="w-[162px] xl:w-auto"
+                  className="rounded-[0_5px_5px_0] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
                   value="Habilidades"
                 >
                   Habilidades
