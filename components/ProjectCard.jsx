@@ -55,7 +55,7 @@ const ProjectCard = ({ project }) => {
     //   </div>
     // </Card>
     <Card className="rounded-[25px] overflow-hidden">
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-white">
         <Image
           width={547}
           height={550}

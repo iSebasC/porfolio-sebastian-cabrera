@@ -16,16 +16,15 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Code } from "lucide-react";
 const projectData = [
   {
-    image: "/work/1.png",
-    category: "Next JS",
-    name: "GoInmuebles",
-    description:
-      "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
-    link: "https://www.goinmuebles.com/",
-    github: "#",
+    image: "/work/anime.png",
+    category: "VueJS",
+    name: "Rastreador de Anime",
+    description: "Un sitio web para buscar animes.",
+    link: "https://animetrackervuejs.netlify.app/",
+    github: "https://github.com/iSebasC/AnimeTracker-VueJs",
   },
   {
-    image: "/work/nike.png",
+    image: "/work/3.png",
     category: "ReactJS",
     name: "Website Nike",
     description:
@@ -42,7 +41,7 @@ const projectData = [
     github: "/https://github.com/premvarma2002/lms-platform",
   },
   {
-    image: "/work/4.jpg",
+    image: "/work/4.png",
     category: "Next JS",
     name: "Hilink",
     description:
@@ -78,7 +77,7 @@ const Work = () => {
         {projectData.map((project, index) => (
           <SwiperSlide key={index} className="rounded-[25px]">
             <Card className="rounded-[25px] overflow-hidden">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden bg-white">
                 <img
                   src={project.image}
                   alt={project.name}

@@ -6,16 +6,15 @@ import clsx from "clsx";
 
 const projectData = [
   {
-    image: "/work/1.png",
-    category: "Next JS",
-    name: "GoInmuebles",
-    description:
-      "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
-    link: "https://www.goinmuebles.com/",
-    github: "#",
+    image: "/work/anime.png",
+    category: "VueJS",
+    name: "Rastreador de Anime",
+    description: "Un sitio web para buscar animes.",
+    link: "https://animetrackervuejs.netlify.app/",
+    github: "https://github.com/iSebasC/AnimeTracker-VueJs",
   },
   {
-    image: "/work/mike.png",
+    image: "/work/3.png",
     category: "ReactJS",
     name: "Website Nike",
     description:
@@ -32,7 +31,7 @@ const projectData = [
     github: "/https://github.com/premvarma2002/lms-platform",
   },
   {
-    image: "/work/4.jpg",
+    image: "/work/4.png",
     category: "Next JS",
     name: "Hilink",
     description:
