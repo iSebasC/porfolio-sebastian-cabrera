@@ -25,7 +25,7 @@ const projectData = [
     github: "#",
   },
   {
-    image: "/work/3.png",
+    image: "/work/nike.png",
     category: "ReactJS",
     name: "Website Nike",
     description:

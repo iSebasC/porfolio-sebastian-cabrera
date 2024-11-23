@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 const projectData = [
   {
     image:
-      "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
+      "/work/goinmuebles.png",
     title: "Goinmuebles",
     type: "Frontend",
     link: "https://example.com/ecommerce-platform",
