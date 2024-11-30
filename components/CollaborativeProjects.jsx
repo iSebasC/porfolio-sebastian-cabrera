@@ -19,79 +19,8 @@ const projectData = [
     title: "Carpio",
     category: "Frontend",
     description: "Un sitio web de la marca Carpio.",
-    link: "#",
+    link: "https://www.carpiosac.com.pe/",
   },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "E-commerce Platform",
-  //   type: "Frontend",
-  //   link: "https://example.com/ecommerce-platform",
-  //   description:
-  //     "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "Mobile Banking App",
-  //   type: "Mobile",
-  //   link: "https://example.com/mobile-banking-app",
-  //   description:
-  //     "Un sitio web de la marca Nike hecho con Reactjs y tailwindcss.",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "CRM System",
-  //   type: "Fullstack",
-  //   link: "https://example.com/crm-system",
-  //   description: "Es un sitio web hecho con Bootstrap-Vue",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "Data Analytics Dashboard",
-  //   type: "Backend",
-  //   link: "https://example.com/data-analytics-dashboard",
-  //   description:
-  //     "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "Marketing Landing Page",
-  //   type: "Frontend",
-  //   link: "https://example.com/marketing-landing-page",
-  //   description:
-  //     "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "AI Chatbot",
-  //   type: "Backend",
-  //   link: "https://example.com/ai-chatbot",
-  //   description:
-  //     "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "CMS Website",
-  //   type: "Fullstack",
-  //   link: "https://example.com/cms-website",
-  //   description:
-  //     "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
-  // },
-  // {
-  //   image:
-  //     "https://cdn.dribbble.com/userupload/14391734/file/original-39dc47b6e25ca91a4b2b8bacb5cc3402.jpg?resize=1024x768",
-  //   title: "Payment API Integration",
-  //   type: "Backend",
-  //   link: "https://example.com/payment-api-integration",
-  //   description:
-  //     "El proyecto Hilink es un sitio web dinámico y moderno desarrollado con Next.js, Tailwind CSS y TypeScript",
-  // },
 ];
 
 export const CollaborativeProjects = () => {

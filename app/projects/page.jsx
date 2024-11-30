@@ -19,7 +19,7 @@ const projectData = [
     name: "Website Nike",
     description:
       "Un sitio web de la marca Nike hecho con Reactjs y tailwindcss.",
-    link: "https://amazon-clone-ten-lemon.vercel.app/",
+    link: "https://website-nike.netlify.app/",
     github: "https://github.com/iSebasC/website-nike",
   },
   {
@@ -27,8 +27,8 @@ const projectData = [
     category: "VueJS",
     name: "Mi blog",
     description: "Es un sitio web hecho con Bootstrap-Vue",
-    link: "/https://lms-platform-liard.vercel.app/",
-    github: "/https://github.com/premvarma2002/lms-platform",
+    link: "https://proyectobootstrapvue.netlify.app/",
+    github: "https://github.com/iSebasC/ProjectBoostrapVue",
   },
   {
     image: "/work/4.png",
