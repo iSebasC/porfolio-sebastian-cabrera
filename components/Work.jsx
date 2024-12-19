@@ -16,6 +16,15 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Code } from "lucide-react";
 const projectData = [
   {
+    image: "/work/ganahoy.png",
+    category: "Astro",
+    name: "GanaHoy",
+    description:
+      "El proyecto GanaHoy es una plataforma que te ayuda a ahorrar de forma segura, automatizada y personalizada.",
+    link: "https://ganahoy.netlify.app/",
+    github: "https://github.com/iSebasC/gana-hoy",
+  },
+  {
     image: "/work/anime.png",
     category: "VueJS",
     name: "Rastreador de Anime",

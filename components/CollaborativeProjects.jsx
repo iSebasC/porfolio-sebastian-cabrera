@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRight } from "lucide-react";
+
 const projectData = [
   {
     image: "/work/1.png",
@@ -11,7 +12,7 @@ const projectData = [
     category: "Frontend",
     description:
       "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
-    link: "https://www.goinmuebles.com/",
+    link: "https://www.prestopolis.com/plataforma",
   },
   {
     image: "/work/carpio.png",
@@ -106,7 +107,14 @@ export const CollaborativeProjects = () => {
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="text-xs text-[#EF6D58]">{project.type}</div>
-                    <ArrowUpRight className="w-5 h-5 text-white" />
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-[#EF6D58] underline hover:text-[#EF6D58]/80"
+                    >
+                      Ver más
+                    </a>
                   </div>
                 </CardContent>
               </Card>

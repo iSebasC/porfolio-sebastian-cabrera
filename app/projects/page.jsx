@@ -6,6 +6,15 @@ import clsx from "clsx";
 
 const projectData = [
   {
+    image: "/work/ganahoy.png",
+    category: "Astro",
+    name: "GanaHoy",
+    description:
+      "El proyecto GanaHoy es una plataforma que te ayuda a ahorrar de forma segura, automatizada y personalizada, alcanzando tus metas financieras con facilidad.",
+    link: "https://ganahoy.netlify.app/",
+    github: "https://github.com/iSebasC/gana-hoy",
+  },
+  {
     image: "/work/anime.png",
     category: "VueJS",
     name: "Rastreador de Anime",
