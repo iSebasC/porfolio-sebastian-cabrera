@@ -84,10 +84,12 @@ export const CollaborativeProjects = () => {
           value={activeCategory}
           className="grid max-w-[450px] mx-auto md:mx-0 md:max-w-[initial] md:grid-cols-2 xl:grid-cols-3 gap-5"
         >
-          {Array.isArray(projectData) &&
+          {Array.isArray(projectData) && projectData.length > 0 ? (
             projectData
               .filter((project) =>
-                activeCategory === "All" ? true : project.type === activeCategory
+                activeCategory === "All"
+                  ? true
+                  : project.type === activeCategory
               )
               .map((project, index) => (
                 <Card
@@ -107,7 +109,9 @@ export const CollaborativeProjects = () => {
                       {project.description}
                     </p>
                     <div className="flex justify-between items-center">
-                      <div className="text-xs text-[#EF6D58]">{project.type}</div>
+                      <div className="text-xs text-[#EF6D58]">
+                        {project.type}
+                      </div>
                       <a
                         href={project.link}
                         target="_blank"
@@ -119,10 +123,12 @@ export const CollaborativeProjects = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+              ))
+          ) : (
+            <p>No hay proyectos disponibles</p>
+          )}
         </TabsContent>
       </Tabs>
     </section>
   );
 };
-
