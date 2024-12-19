@@ -50,7 +50,7 @@ const projectData = [
   },
 ];
 
-//  remove category duplicates
+// Remove duplicate categories
 const uniqueCategories = [
   "Todos los proyectos",
   ...new Set(projectData.map((item) => item.category)),
@@ -60,12 +60,14 @@ const Projects = () => {
   const [categories, setCategories] = useState(uniqueCategories);
   const [category, setCategory] = useState("Todos los proyectos");
 
-  const filteredProjects = projectData.filter((project) => {
-    // if category is all projects then return all projects , else filter by category.
-    return category === "Todos los proyectos"
-      ? project
-      : project.category === category;
-  });
+  // Filter projects based on the selected category
+  const filteredProjects = Array.isArray(projectData)
+    ? projectData.filter((project) => {
+        return category === "Todos los proyectos"
+          ? project
+          : project.category === category;
+      })
+    : [];
 
   return (
     <section className="min-h-screen pt-12">
@@ -73,12 +75,13 @@ const Projects = () => {
         <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
           Mis Proyectos
         </h2>
-        {/* tabs  */}
+
+        {/* Tabs */}
         <Tabs defaultValue={category} className="w-full">
           <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-start overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
             <div className="mx-auto flex gap-[1px] rounded-[6px] bg-tertiary p-[1px]">
-              {categories.map((category, index) => {
-                return (
+              {Array.isArray(categories) && categories.length > 0 ? (
+                categories.map((category, index) => (
                   <TabsTrigger
                     onClick={() => setCategory(category)}
                     value={category}
@@ -96,19 +99,26 @@ const Projects = () => {
                   >
                     {category}
                   </TabsTrigger>
-                );
-              })}
+                ))
+              ) : (
+                <p>No hay categorías disponibles</p>
+              )}
             </div>
           </TabsList>
-          {/* tabs content  */}
+
+          {/* Tabs Content */}
           <div className="text-lg xl:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {filteredProjects.map((project, index) => {
-              return (
+            {Array.isArray(filteredProjects) && filteredProjects.length > 0 ? (
+              filteredProjects.map((project, index) => (
                 <TabsContent value={category} key={index}>
                   <ProjectCard project={project} />
                 </TabsContent>
-              );
-            })}
+              ))
+            ) : (
+              <p className="col-span-full text-center">
+                No hay proyectos disponibles en esta categoría.
+              </p>
+            )}
           </div>
         </Tabs>
       </div>
