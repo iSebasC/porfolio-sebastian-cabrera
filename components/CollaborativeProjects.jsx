@@ -84,43 +84,45 @@ export const CollaborativeProjects = () => {
           value={activeCategory}
           className="grid max-w-[450px] mx-auto md:mx-0 md:max-w-[initial] md:grid-cols-2 xl:grid-cols-3 gap-5"
         >
-          {projectData
-            .filter((project) =>
-              activeCategory === "All" ? true : project.type === activeCategory
-            )
-            .map((project, index) => (
-              <Card
-                className="w-full bg-tertiary dark:bg-white overflow-hidden rounded-xl"
-                key={index}
-              >
-                <CardContent className="p-6">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="aspect-[16/8.5] h-full rounded-lg mb-4 object-cover"
-                  />
-                  <h3 className="text-lg font-bold mb-2 text-gray-800">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <div className="text-xs text-[#EF6D58]">{project.type}</div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-[#EF6D58] underline hover:text-[#EF6D58]/80"
-                    >
-                      Ver más
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          {Array.isArray(projectData) &&
+            projectData
+              .filter((project) =>
+                activeCategory === "All" ? true : project.type === activeCategory
+              )
+              .map((project, index) => (
+                <Card
+                  className="w-full bg-tertiary dark:bg-white overflow-hidden rounded-xl"
+                  key={index}
+                >
+                  <CardContent className="p-6">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="aspect-[16/8.5] h-full rounded-lg mb-4 object-cover"
+                    />
+                    <h3 className="text-lg font-bold mb-2 text-gray-800">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="text-xs text-[#EF6D58]">{project.type}</div>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-[#EF6D58] underline hover:text-[#EF6D58]/80"
+                      >
+                        Ver más
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
         </TabsContent>
       </Tabs>
     </section>
   );
 };
+
