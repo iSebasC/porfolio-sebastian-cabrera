@@ -4,6 +4,7 @@ import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "@/components/ProjectCard";
 import clsx from "clsx";
 
+// Datos de los proyectos
 const projectData = [
   {
     image: "/work/gana-hoy.png",
@@ -50,21 +51,21 @@ const projectData = [
   },
 ];
 
-// Remove duplicate categories
+// Remover categorías duplicadas
 const uniqueCategories = [
   "Todos los proyectos",
-  ...new Set(projectData.map((item) => item.category)),
+  ...new Set(projectData.map((item) => item.category || "Sin Categoría")),
 ];
 
 const Projects = () => {
   const [categories, setCategories] = useState(uniqueCategories);
   const [category, setCategory] = useState("Todos los proyectos");
 
-  // Filter projects based on the selected category
+  // Filtrar proyectos según la categoría seleccionada
   const filteredProjects = Array.isArray(projectData)
     ? projectData.filter((project) => {
         return category === "Todos los proyectos"
-          ? project
+          ? true
           : project.category === category;
       })
     : [];
@@ -77,7 +78,7 @@ const Projects = () => {
         </h2>
 
         {/* Tabs */}
-        <Tabs defaultValue={category} className="w-full">
+        <Tabs defaultValue="Todos los proyectos" className="w-full">
           <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-start overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
             <div className="mx-auto flex gap-[1px] rounded-[6px] bg-tertiary p-[1px]">
               {Array.isArray(categories) && categories.length > 0 ? (
@@ -97,7 +98,7 @@ const Projects = () => {
                       }
                     )}
                   >
-                    {category}
+                    {category || "Sin Categoría"}
                   </TabsTrigger>
                 ))
               ) : (
