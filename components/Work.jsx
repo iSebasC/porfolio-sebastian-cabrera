@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Code } from "lucide-react";
 const projectData = [
   {
-    image: "/work/ganahoy.png",
+    image: "/work/gana-hoy.png",
     category: "Astro",
     name: "GanaHoy",
     description:

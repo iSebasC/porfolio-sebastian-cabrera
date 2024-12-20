@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 const projectData = [
   {
-    image: "/work/ganahoy.png",
+    image: "/work/gana-hoy.png",
     category: "Astro",
     name: "GanaHoy",
     description:
