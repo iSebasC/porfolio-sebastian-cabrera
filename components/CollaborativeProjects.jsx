@@ -1,8 +1,8 @@
 "use client";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUpRight } from "lucide-react";
 
 const projectData = [
   {
@@ -11,7 +11,7 @@ const projectData = [
     title: "GoInmuebles",
     category: "Frontend",
     description:
-      "Un sitio web privada de crowdfunding inmobiliario con nextjs, tailwindcss, laravel y nestjs.",
+      "Un sitio web privada de crowdfunding inmobiliario con Next.js, TailwindCSS, Laravel y NestJS.",
     link: "https://www.prestopolis.com/plataforma",
   },
   {
@@ -28,107 +28,79 @@ export const CollaborativeProjects = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
-    <section className="container">
-      <div className="flex flex-col items-center lg:items-start">
-        <h2 className="section-title mb-4">
-          Proyectos en los que he participado
-        </h2>
-        <p className="subtitle mb-8 max-w-[800px]">
-          Descubre los proyectos en los que he tenido la oportunidad de
-          colaborar. Cada uno refleja mi dedicación, habilidades y el esfuerzo
-          conjunto para lograr resultados excepcionales.
-        </p>
-      </div>
+    <section className="py-20">
+      <div className="container mx-auto px-4">
+        {/* Título */}
+        <div className="mb-12 text-left max-w-2xl">
+          <h2 className="section-title text-primary mb-2">
+            Proyectos en los que he participado
+          </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Descubre los proyectos en los que he tenido la oportunidad de colaborar. Cada uno refleja mi dedicación, habilidades y el esfuerzo conjunto para lograr resultados excepcionales.
+          </p>
+        </div>
 
-      <Tabs
-        defaultValue={activeCategory}
-        className="w-full"
-        onValueChange={setActiveCategory}
-      >
-        <TabsList className="no-scrollbar !rounded-none mb-[30px] h-auto w-full justify-start overflow-auto !bg-transparent lg:mb-[46px] 2xl:mb-[92px]">
-          <div className="mx-auto flex gap-[1px] rounded-[6px] bg-tertiary p-[1px]">
-            <TabsTrigger
-              value="All"
-              className="rounded-[5px_0_0_5px] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
-            >
-              All
-            </TabsTrigger>
-            <TabsTrigger
-              value="Frontend"
-              className="rounded-none bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
-            >
-              Frontend
-            </TabsTrigger>
+        {/* Tabs */}
+        <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory}>
+          <TabsList className="no-scrollbar flex flex-wrap gap-2 mb-10 p-0 bg-transparent dark:bg-transparent shadow-none border-none">
+            {["All", "Frontend", "Backend", "Fullstack", "Mobile"].map((tab, index) => (
+              <TabsTrigger
+                key={index}
+                value={tab}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-transparent text-foreground hover:bg-primary hover:text-white data-[state=active]:bg-primary data-[state=active]:text-white transition"
+              >
+                {tab}
+              </TabsTrigger>
+            ))}
+          </TabsList>
 
-            <TabsTrigger
-              value="Backend"
-              className="rounded-none bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
-            >
-              Backend
-            </TabsTrigger>
-            <TabsTrigger
-              value="Fullstack"
-              className="rounded-none bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
-            >
-              Fullstack
-            </TabsTrigger>
-            <TabsTrigger
-              value="Mobile"
-              className="rounded-[0_5px_5px_0] bg-white px-[20px] py-[8px] text-[17px] font-normal hover:bg-[#EF6D58] hover:text-white data-[state=active]:bg-[#EF6D58] data-[state=active]:text-white"
-            >
-              Mobile
-            </TabsTrigger>
-          </div>
-        </TabsList>
-        <TabsContent
-          value={activeCategory}
-          className="grid max-w-[450px] mx-auto md:mx-0 md:max-w-[initial] md:grid-cols-2 xl:grid-cols-3 gap-5"
-        >
-          {Array.isArray(projectData) && projectData.length > 0 ? (
-            projectData
+
+
+          {/* Contenido de proyectos */}
+          <TabsContent
+            value={activeCategory}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+          >
+            {projectData
               .filter((project) =>
-                activeCategory === "All"
-                  ? true
-                  : project.type === activeCategory
+                activeCategory === "All" ? true : project.type === activeCategory
               )
               .map((project, index) => (
                 <Card
-                  className="w-full bg-tertiary dark:bg-white overflow-hidden rounded-xl"
                   key={index}
+                  className="w-full bg-card text-card-foreground rounded-xl overflow-hidden border border-border"
                 >
                   <CardContent className="p-6">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="aspect-[16/8.5] h-full rounded-lg mb-4 object-cover"
+                      className="rounded-lg mb-4 aspect-video object-cover"
                     />
-                    <h3 className="text-lg font-bold mb-2 text-gray-800">
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-gray-400 mb-4">
+                    <p className="text-sm text-muted-foreground mb-4">
                       {project.description}
                     </p>
                     <div className="flex justify-between items-center">
-                      <div className="text-xs text-[#EF6D58]">
+                      <span className="text-xs text-primary font-medium">
                         {project.type}
-                      </div>
+                      </span>
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-[#EF6D58] underline hover:text-[#EF6D58]/80"
+                        className="text-xs text-primary underline hover:opacity-80 transition"
                       >
                         Ver más
                       </a>
                     </div>
                   </CardContent>
                 </Card>
-              ))
-          ) : (
-            <p>No hay proyectos disponibles</p>
-          )}
-        </TabsContent>
-      </Tabs>
+              ))}
+          </TabsContent>
+        </Tabs>
+      </div>
     </section>
   );
 };

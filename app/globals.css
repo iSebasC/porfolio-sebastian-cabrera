@@ -16,8 +16,10 @@ body::-webkit-scrollbar {
       --card-foreground: 240 19% 16%;
       --popover: 0 0% 100%;
       --popover-foreground: 240 10% 3.9%;
-      --primary: 8, 83%, 64%; /* Naranja primario claro */
-      --primary-foreground: 217, 90%, 85%; /* Azul primario más claro */
+      --primary: 8, 83%, 64%;
+      /* Naranja primario claro */
+      --primary-foreground: 217, 90%, 85%;
+      /* Azul primario más claro */
       --secondary: 240 19% 16%;
       --secondary-foreground: 300 0% 100%;
       --tertiary: 27 82% 98%;
@@ -40,8 +42,10 @@ body::-webkit-scrollbar {
       --card-foreground: 300 0% 100%;
       --popover: 20 14.3% 4.1%;
       --popover-foreground: 60 9.1% 97.8%;
-      --primary: 8, 83%, 64%; /* Naranja primario claro */
-      --primary-foreground: 217, 90%, 60%; /* Azul primario menos oscuro */
+      --primary: 8, 83%, 64%;
+      /* Naranja primario claro */
+      --primary-foreground: 217, 90%, 60%;
+      /* Azul primario menos oscuro */
       --secondary: 240 19% 16%;
       --secondary-foreground: 300 0% 100%;
       --tertiary: 237 22% 20%;
@@ -53,31 +57,39 @@ body::-webkit-scrollbar {
       --destructive-foreground: 60 9.1% 97.8%;
       --border: 237 22% 20%;
       --input: 237 22% 20%;
-      --ring: 217, 90%, 67%; /* Azul primario claro para el anillo */
+      --ring: 217, 90%, 67%;
+      /* Azul primario claro para el anillo */
     }
   }
 }
+
 @layer components {
   .no-scrollbar {
     scrollbar-width: none;
   }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-white dark:bg-black text-foreground;
+    @apply bg-white dark:bg-black text-foreground overflow-x-hidden;
   }
 }
+
 
 .h1 {
   @apply text-6xl xl:text-[72px] xl:leading-[80px] tracking-[-2px] font-bold;
@@ -86,6 +98,7 @@ body::-webkit-scrollbar {
 .h2 {
   @apply text-2xl font-bold;
 }
+
 .h3 {
   @apply text-3xl font-bold;
 }
@@ -99,16 +112,29 @@ body::-webkit-scrollbar {
 }
 
 .section-title {
-  @apply text-[20px] md:text-4xl font-bold relative w-max flex items-center justify-between gap-x-3 before:bg-dots_light before:dark:bg-dots_dark before:bg-no-repeat before:bg-center before:w-[24px] before:h-[24px];
+  @apply text-[20px] md:text-lg font-bold relative w-max flex items-center justify-between gap-x-3 
+         before:bg-dots_light dark:before:bg-dots_dark before:bg-no-repeat before:bg-center before:w-[24px] before:h-[24px]
+         text-foreground tracking-tight;
 }
+
 
 .badge {
   @apply z-10 w-[200px] h-[68px] bg-white dark:backdrop-blur-[44px] shadow-2xl p-4 rounded-[10px] flex items-center gap-x-4;
 }
 
 /* swiper bullets styles  */
-.swiper-horizontal > .section-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
+.swiper-horizontal>.section-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   @apply bg-primary;
+}
+
+
+/* Ocultar scroll horizontal */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

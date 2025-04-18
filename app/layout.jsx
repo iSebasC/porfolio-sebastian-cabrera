@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={outfit.className}>
+      <body className={`${outfit.className} overflow-x-hidden relative min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
           {children}
@@ -27,3 +27,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

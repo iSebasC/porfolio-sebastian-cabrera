@@ -66,7 +66,7 @@ const Work = () => {
       {/* text  */}
       <div className="flex flex-col items-center lg:items-start">
         <h2 className="section-title mb-4">Proyectos Personales</h2>
-        <p className="subtitle mb-8">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-8">
           Explora el código detrás de los proyectos que he creado. Cada uno
           refleja mi pasión por el desarrollo y mi compromiso con la calidad.
         </p>

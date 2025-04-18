@@ -1,46 +1,47 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+
 // components
 import ThemeToggler from "./ThemeToggler";
 import Logo from "./Logo";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
-import { usePathname } from "next/navigation";
 
-const header = () => {
-  const [header, setHeader] = useState(false);
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const scrollYPos = window.addEventListener("scroll", () => {
-      window.scrollY > 50 ? setHeader(true) : setHeader(false);
-    });
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
 
-    // remove event
-    return () => window.removeEventListener("scroll", scrollYPos);
-  });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      className={`${
-        header
-          ? "py-4 bg-white shadow-lg  dark:bg-accent"
-          : "py-6 dark:bg-transparent"
-      } sticky top-0 z-30 transition-all ${pathname === "/" && "bg-[#fef9f5]"}`}
+      className={`
+        sticky top-0 z-30 w-full transition-all
+        ${scrolled
+          ? "bg-background shadow-lg dark:shadow-md"
+          : "bg-transparent dark:bg-transparent"}
+        ${pathname === "/" && !scrolled ? "bg-tertiary dark:bg-background" : ""}
+      `}
     >
       <div className="container mx-auto">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center py-4">
           <Logo />
           <div className="flex items-center gap-x-6">
-            {/* {nav} */}
             <Nav
               containerStyles="hidden xl:flex gap-x-8 items-center"
               linkStyles="relative hover:text-primary transition-all"
               underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full"
             />
             <ThemeToggler />
-            {/* {mobile nav} */}
             <div className="xl:hidden">
               <MobileNav />
             </div>
@@ -51,4 +52,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

@@ -107,7 +107,8 @@ const Hero = () => {
     //   </div>
     // </section>
 
-    <section className="container px-0 grid gap-[3rem] py-[3.5rem] sm:gap-[4rem] xl:items-center xl:grid-cols-3 xl:py-0 xl:min-h-[calc(100vh-88px)]">
+    <section className="container px-0 grid gap-[3rem] py-[3.5rem] sm:gap-[4rem] xl:items-center xl:grid-cols-3 xl:py-0 xl:min-h-[calc(100vh-88px)] overflow-hidden relative w-full">
+
       <div className="text-center xl:text-end">
         <h1 className="font-semibold text-[35px] xl:text-[55px]">
           {name.split("").map((char, index) => (
@@ -167,7 +168,7 @@ const Hero = () => {
           width="1em"
           height="1em"
           fill="none"
-          className="text-[230px] mx-auto sm:text-[379px] col-start-1 row-start-1 xl:text-[400px]"
+          className="text-[230px] sm:text-[379px] xl:text-[400px] max-w-full mx-auto col-start-1 row-start-1"
           variants={{
             hidden: { y: 100, scale: 0 }, // Comienza desde abajo y con escala 0
             visible: {
