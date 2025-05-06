@@ -6,22 +6,33 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const projectData = [
   {
-    image: "/work/1.png",
-    type: "Frontend",
-    title: "GoInmuebles",
+    image: "/work/7.png",
+    type: "Backend",
+    title: "Prestopolis",
     category: "Frontend",
     description:
-      "Un sitio web privada de crowdfunding inmobiliario con Next.js, TailwindCSS, Laravel y NestJS.",
+      "Plataforma peruana de crowdfunding inmobiliario desarrollada con Laravel, NestJS y Next.js.",
     link: "https://www.prestopolis.com/plataforma",
   },
   {
     image: "/work/carpio.png",
-    type: "Frontend",
+    type: "Fullstack",
     title: "Carpio",
     category: "Frontend",
-    description: "Un sitio web de la marca Carpio.",
+    description:
+      "Sitio web corporativo de la empresa Carpio Automotriz desarrollado con Laravel.",
     link: "https://www.carpiosac.com.pe/",
   },
+  {
+    image: "/work/8.png",
+    type: "Fullstack",
+    title: "Gestora", 
+    category: "Frontend",
+    description:
+      "Sitio institucional para gestión financiera e hipotecaria creado con Slim y Next.js.",
+    link: "https://www.crececongestora.com/",
+  }
+  
 ];
 
 export const CollaborativeProjects = () => {
